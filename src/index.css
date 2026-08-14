@@ -8,6 +8,7 @@
   --color-border: #e7e7e7;
   --font-serif: "Instrument Serif", serif;
   --font-sans: "Inter", sans-serif;
+  --font-hand: "Patrick Hand", cursive;
   --radius-cards: 16px;
   --radius-images: 20px;
 }
@@ -16,4 +17,67 @@ body {
   background: var(--color-background);
   font-family: var(--font-sans);
   margin: 0;
+}
+
+/* Sticky note gently swaying, like it's held on by one piece of tape */
+@keyframes sticky-sway {
+  0%, 100% { transform: rotate(-6deg) translateY(0px); }
+  50% { transform: rotate(-3deg) translateY(-3px); }
+}
+.sticky-note {
+  animation: sticky-sway 4.5s ease-in-out infinite;
+  transform-origin: top left;
+}
+
+/* Slight wobble on hover for doodle-style buttons/links */
+@keyframes wobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-1.5deg); }
+  75% { transform: rotate(1.5deg); }
+}
+.hover-wobble:hover {
+  animation: wobble 0.4s ease-in-out;
+}
+
+/* Hand-drawn wavy underline for nav links */
+.doodle-underline {
+  position: relative;
+}
+.doodle-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 4px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 8' preserveAspectRatio='none'%3E%3Cpath d='M0,5 Q7.5,0 15,5 T30,5 T45,5 T60,5' fill='none' stroke='%230f766e' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E")
+    repeat-x;
+  background-size: 30px 8px;
+  opacity: 0;
+  transform: scaleX(0.8);
+  transform-origin: left;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.doodle-underline:hover::after,
+.doodle-underline.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Slight rotation wobble on the work card on hover, like it's being picked up */
+.work-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.work-card:hover {
+  transform: rotate(-0.6deg) translateY(-4px);
+  box-shadow: 0px 12px 28px 0px rgba(0, 0, 0, 0.08);
+}
+
+/* Pen-scribble underline that draws itself in under the CTA arrow link */
+@keyframes draw-line {
+  from { stroke-dashoffset: 60; }
+  to { stroke-dashoffset: 0; }
+}
+.cta-link:hover .cta-underline path {
+  animation: draw-line 0.5s ease forwards;
 }
