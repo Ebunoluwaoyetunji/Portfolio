@@ -46,7 +46,7 @@ export default function Home() {
             to="/work/appointment-scheduling"
             className="work-card group block rounded-cards border-4 border-[#fff8c5] bg-border overflow-hidden shadow-[0px_4px_16px_0px_rgba(0,0,0,0.05)]"
           >
-            <div className="relative bg-gradient-to-br from-[rgba(182,153,251,0.35)] to-background p-8 md:p-12 pb-16 md:pb-20 grid md:grid-cols-[1fr_1.1fr] gap-10 items-center">
+            <div className="relative bg-gradient-to-br from-[rgba(182,153,251,0.35)] to-background pl-8 md:pl-12 pr-6 md:pr-8 pt-8 md:pt-12 pb-10 md:pb-12 grid md:grid-cols-[1fr_1.1fr] gap-6 items-center">
               <div>
                 <h3 className="font-serif text-[36px] md:text-[48px] leading-tight text-black mb-6">
                   Making appointments management simpler for service
@@ -87,7 +87,7 @@ export default function Home() {
               </div>
 
               {/* Right-aligned thumbnail cluster */}
-              <div className="relative w-fit ml-auto pb-16 md:pb-0">
+              <div className="relative w-fit ml-auto">
                 <div className="relative bg-white/70 rounded-images p-3 shadow-xl transition-transform duration-300 group-hover:-translate-y-1">
                   <img
                     src={appointmentDashboard}
@@ -97,7 +97,7 @@ export default function Home() {
                 </div>
 
                 {/* Phone mockup, overlapping the bottom-left of the dashboard */}
-                <div className="absolute -bottom-10 left-16 md:left-24 bg-white p-2 rounded-[14px] shadow-2xl transition-transform duration-300 group-hover:-translate-y-1 z-10">
+                <div className="absolute -bottom-6 left-16 md:left-24 bg-white p-2 rounded-[14px] shadow-2xl transition-transform duration-300 group-hover:-translate-y-1 z-10">
                   <img
                     src={appointmentPhone}
                     alt="Appointment scheduling mobile app preview"
