@@ -85,23 +85,32 @@ export default function Home() {
                     className="w-full max-w-[380px] h-auto rounded-[12px] object-cover"
                   />
                 </div>
-
                 {/* Dancing sticky note */}
-                <div className="sticky-note absolute -top-6 -right-4 w-[160px] rounded-[6px] bg-[#dcfce7] p-3 text-[13px] leading-[17px] text-primary shadow-md hidden md:block font-hand">
+                <div className="sticky-note absolute -top-6 -right-4 w-[170px] rounded-[6px] bg-[#dcfce7] p-3 text-[13px] leading-[17px] text-primary shadow-md hidden md:block font-hand">
                   Users needed to quickly understand their schedule and
                   business activity. I prioritized bookings and key metrics,
                   helping them make faster decisions without navigating
                   multiple screens.
+                  <div className="note-doodle-lines">
+                    <svg viewBox="0 0 100 14" preserveAspectRatio="none">
+                      <path
+                        d="M2,4 Q25,0 48,4 T94,4"
+                        fill="none"
+                        stroke="#111"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                      />
+                      <path
+                        d="M2,11 Q20,8 38,11 T70,11"
+                        fill="none"
+                        stroke="#111"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </div>
                   <span className="absolute -top-2 left-6 w-4 h-4 rounded-full bg-white/70 border border-black/10 rotate-12" />
                 </div>
-              </div>
-            </div>
-          </Link>
-        </section>
-      </main>
-    </div>
-  );
-}
 
 function Stat({ number, label }) {
   return (
