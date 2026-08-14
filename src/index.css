@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #fafaf8;
+  --color-primary: #111111;
+  --color-accent-2: #0f766e;
+  --color-surface: #ffffff;
+  --color-border: #e7e7e7;
+  --font-serif: "Instrument Serif", serif;
+  --font-sans: "Inter", sans-serif;
+  --radius-cards: 16px;
+  --radius-images: 20px;
+}
+
+body {
+  background: var(--color-background);
+  font-family: var(--font-sans);
+  margin: 0;
+}
