@@ -86,8 +86,8 @@ export default function Home() {
                 </span>
               </div>
 
-              {/* Left-aligned, larger thumbnail cluster */}
-              <div className="relative flex justify-start pb-16 md:pb-0">
+              {/* Right-aligned thumbnail cluster */}
+              <div className="relative w-fit ml-auto pb-16 md:pb-0">
                 <div className="relative bg-white/70 rounded-images p-3 shadow-xl transition-transform duration-300 group-hover:-translate-y-1">
                   <img
                     src={appointmentDashboard}
