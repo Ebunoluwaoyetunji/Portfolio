@@ -81,3 +81,14 @@ body {
 .cta-link:hover .cta-underline path {
   animation: draw-line 0.5s ease forwards;
 }
+/* Pen-drawn underline strokes at the bottom of the sticky note, like a
+   quick signature scribble */
+.note-doodle-lines {
+  margin-top: 8px;
+  width: 70%;
+}
+.note-doodle-lines svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
