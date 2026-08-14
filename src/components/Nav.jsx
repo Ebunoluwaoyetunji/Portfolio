@@ -19,7 +19,7 @@ export default function Nav() {
               to={link.to}
               end={link.to === "/"}
               className={({ isActive }) =>
-                isActive ? "text-accent-2" : "text-primary"
+                `doodle-underline ${isActive ? "active text-accent-2" : "text-primary"}`
               }
             >
               {link.label}
