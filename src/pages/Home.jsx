@@ -1,13 +1,6 @@
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
-
-// TODO: these Figma-hosted asset URLs expire ~7 days after export (Aug 14 2026).
-// Before final deploy, export the real images from Figma and drop them into
-// src/assets/images, then swap these imports for local ones.
-const imgDay1 =
-  "https://www.figma.com/api/mcp/asset/700e2c53-a7f6-453b-a46b-01e1280bf992.png";
-const imgHome1 =
-  "https://www.figma.com/api/mcp/asset/59307cb7-25c2-41ea-8f70-67c6725e8c26.png";
+import appointmentDashboard from "../assets/images/appointment-scheduling-dashboard.png";
 
 export default function Home() {
   return (
@@ -43,7 +36,7 @@ export default function Home() {
             to="/work/appointment-scheduling"
             className="work-card group block rounded-cards border-4 border-[#fff8c5] bg-border overflow-hidden shadow-[0px_4px_16px_0px_rgba(0,0,0,0.05)]"
           >
-            <div className="relative bg-gradient-to-br from-[rgba(182,153,251,0.35)] to-background p-8 md:p-12 grid md:grid-cols-[1.4fr_1fr] gap-10 items-center">
+            <div className="relative bg-gradient-to-br from-[rgba(182,153,251,0.35)] to-background p-8 md:p-12 grid md:grid-cols-[1fr_1.1fr] gap-10 items-center">
               <div>
                 <h3 className="font-serif text-[36px] md:text-[48px] leading-tight text-black mb-6">
                   Making appointments management simpler for service
@@ -83,24 +76,18 @@ export default function Home() {
                 </span>
               </div>
 
-              <div className="relative flex justify-center">
-                <div className="relative -rotate-3 bg-white/60 rounded-images p-2 shadow-lg transition-transform duration-300 group-hover:-rotate-2 group-hover:-translate-y-1">
+              {/* Left-aligned, larger thumbnail */}
+              <div className="relative flex justify-start">
+                <div className="relative bg-white/70 rounded-images p-3 shadow-xl transition-transform duration-300 group-hover:-translate-y-1">
                   <img
-                    src={imgHome1}
-                    alt="Product screenshot preview"
-                    className="w-[220px] h-auto rounded-[12px] object-cover"
-                  />
-                </div>
-                <div className="absolute -bottom-4 -left-4 rotate-6 bg-white/60 rounded-images p-2 shadow-lg hidden md:block transition-transform duration-300 group-hover:rotate-3">
-                  <img
-                    src={imgDay1}
-                    alt="Product screenshot preview"
-                    className="w-[140px] h-auto rounded-[12px] object-cover"
+                    src={appointmentDashboard}
+                    alt="Appointment scheduling dashboard preview"
+                    className="w-full max-w-[380px] h-auto rounded-[12px] object-cover"
                   />
                 </div>
 
                 {/* Dancing sticky note */}
-                <div className="sticky-note absolute top-2 -right-6 w-[160px] rounded-[6px] bg-[#dcfce7] p-3 text-[13px] leading-[17px] text-primary shadow-md hidden md:block font-hand">
+                <div className="sticky-note absolute -top-6 -right-4 w-[160px] rounded-[6px] bg-[#dcfce7] p-3 text-[13px] leading-[17px] text-primary shadow-md hidden md:block font-hand">
                   Users needed to quickly understand their schedule and
                   business activity. I prioritized bookings and key metrics,
                   helping them make faster decisions without navigating
