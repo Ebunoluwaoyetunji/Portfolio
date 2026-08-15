@@ -44,10 +44,10 @@ export default function Home() {
 
           <Link
             to="/work/appointment-scheduling"
-            className="work-card group block rounded-cards border-4 border-[#fff8c5] bg-border overflow-hidden shadow-[0px_4px_16px_0px_rgba(0,0,0,0.05)]"
+            className="work-card group relative block rounded-cards border-4 border-[#fff8c5] bg-border overflow-hidden shadow-[0px_4px_16px_0px_rgba(0,0,0,0.05)]"
           >
-            <div className="relative bg-gradient-to-br from-[rgba(182,153,251,0.35)] to-background pl-8 md:pl-12 pr-6 md:pr-8 pt-8 md:pt-12 pb-10 md:pb-12 grid md:grid-cols-[1fr_1.1fr] gap-6 items-center">
-              <div>
+            <div className="relative bg-gradient-to-br from-[rgba(182,153,251,0.35)] to-background p-8 md:p-12 md:min-h-[480px]">
+              <div className="max-w-[440px]">
                 <h3 className="font-serif text-[36px] md:text-[48px] leading-tight text-black mb-6">
                   Making appointments management simpler for service
                   providers
@@ -86,27 +86,26 @@ export default function Home() {
                 </span>
               </div>
 
-              {/* Right-aligned thumbnail cluster */}
-              <div className="relative w-fit ml-auto">
-                <div className="relative bg-white/70 rounded-images p-3 shadow-xl transition-transform duration-300 group-hover:-translate-y-1">
-                  <img
-                    src={appointmentDashboard}
-                    alt="Appointment scheduling dashboard preview"
-                    className="w-full max-w-[380px] h-auto rounded-[12px] object-cover"
-                  />
-                </div>
+              {/* Image cluster: bleeds off the card's right/bottom edge and
+                  gets cropped by the card's own overflow-hidden border, so
+                  only part of it shows until you click through */}
+              <div className="hidden md:block absolute right-[-36px] bottom-[-28px] w-[380px] transition-transform duration-300 group-hover:-translate-y-1">
+                <img
+                  src={appointmentDashboard}
+                  alt="Appointment scheduling dashboard preview"
+                  className="w-full h-auto rounded-[10px] shadow-2xl -rotate-1"
+                />
 
-                {/* Phone mockup, overlapping the bottom-left of the dashboard */}
-                <div className="absolute -bottom-6 left-16 md:left-24 bg-white p-2 rounded-[14px] shadow-2xl transition-transform duration-300 group-hover:-translate-y-1 z-10">
+                <div className="absolute -bottom-6 left-8 w-[130px]">
                   <img
                     src={appointmentPhone}
                     alt="Appointment scheduling mobile app preview"
-                    className="w-[150px] h-auto rounded-[10px]"
+                    className="w-full h-auto rounded-[10px] shadow-2xl"
                   />
                 </div>
 
-                {/* Dancing sticky note */}
-                <div className="sticky-note absolute -top-6 -right-4 w-[170px] rounded-[6px] bg-[#dcfce7] p-3 text-[13px] leading-[17px] text-primary shadow-md hidden md:block font-hand">
+                {/* Dancing sticky note, sits fully visible above the cluster */}
+                <div className="sticky-note absolute -top-14 left-[-30px] w-[170px] rounded-[6px] bg-[#dcfce7] p-3 text-[13px] leading-[17px] text-primary shadow-md font-hand">
                   Users needed to quickly understand their schedule and
                   business activity. I prioritized bookings and key metrics,
                   helping them make faster decisions without navigating
@@ -131,6 +130,15 @@ export default function Home() {
                   </div>
                   <span className="absolute -top-2 left-6 w-4 h-4 rounded-full bg-white/70 border border-black/10 rotate-12" />
                 </div>
+              </div>
+
+              {/* Simple mobile fallback: full image, no bleed/clip effect */}
+              <div className="md:hidden mt-8">
+                <img
+                  src={appointmentDashboard}
+                  alt="Appointment scheduling dashboard preview"
+                  className="w-full h-auto rounded-[10px] shadow-lg"
+                />
               </div>
             </div>
           </Link>
