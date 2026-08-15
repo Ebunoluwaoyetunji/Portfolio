@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import Nav from "../components/Nav";
 import detailHeroDashboard from "../assets/images/detail-hero-dashboard.png";
 import briefMockups from "../assets/images/brief-mockups.png";
+import personaProvider from "../assets/images/persona-provider.png";
+import personaStaff from "../assets/images/persona-staff.png";
+import personaClient from "../assets/images/persona-client.png";
 
 const PROCESS_SECTIONS = [
   { id: "brief", label: "Brief" },
@@ -158,11 +161,142 @@ function ProcessSection() {
           </div>
         </section>
 
-        <PlaceholderSection
+        <section
           id="problem"
-          label="Problem"
-          refCallback={(el) => (sectionRefs.current.problem = el)}
-        />
+          ref={(el) => (sectionRefs.current.problem = el)}
+          className="process-section mb-32"
+        >
+          <div className="grid md:grid-cols-[1fr_1.1fr] gap-12 items-start mb-16">
+            {/* Sticky "note" card */}
+            <div className="relative">
+              <div className="rotate-[-2deg] bg-[#f4f4f4] rounded-[8px] shadow-lg p-6 max-w-[380px]">
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="w-6 h-6 rounded-full bg-[#b699fb]/30 flex items-center justify-center">
+                    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-accent-2" fill="none" stroke="currentColor" strokeWidth="2">
+                      <circle cx="12" cy="8" r="4" />
+                      <path d="M4 20c0-4 4-6 8-6s8 2 8 6" />
+                    </svg>
+                  </span>
+                  <p className="text-[13px] text-black/60 font-hand">
+                    Ebunoluwa · Product exploration
+                  </p>
+                </div>
+                <p className="font-hand text-[19px] leading-[26px] text-black mb-4">
+                  Okay, I know what I want Dressr to achieve. But what
+                  exactly is making this{" "}
+                  <span className="relative">
+                    difficult?
+                    <svg
+                      className="absolute -bottom-1 left-0 w-full h-1.5"
+                      viewBox="0 0 100 8"
+                      preserveAspectRatio="none"
+                    >
+                      <path
+                        d="M2,4 Q25,0 50,4 T98,4"
+                        fill="none"
+                        stroke="#0f766e"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </span>
+                </p>
+                <span className="inline-block rounded-full bg-[#b699fb]/40 px-4 py-2 text-[13px] text-primary font-hand">
+                  Let's unpack this.
+                </span>
+              </div>
+
+              {/* Curved arrow pointing toward the headline */}
+              <svg
+                className="hidden md:block absolute -right-8 top-8 w-10 h-10 text-black/50"
+                viewBox="0 0 40 40"
+                fill="none"
+              >
+                <path
+                  d="M4 4 C 20 4, 32 10, 32 24"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M25 22 L32 30 L38 21"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+              </svg>
+
+              {/* Pushpin */}
+              <svg
+                className="absolute -bottom-6 left-0 w-6 h-6"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <circle cx="12" cy="8" r="6" fill="#b91c5c" />
+                <path d="M12 13 L12 22" stroke="#0f766e" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </div>
+
+            <div>
+              <p className="font-serif italic text-[28px] md:text-[32px] leading-tight text-accent-2 mb-6">
+                The challenge was more than just booking appointments.
+              </p>
+              <p className="font-serif text-[26px] md:text-[28px] leading-snug text-black">
+                <em className="italic">
+                  I had to design an experience that worked for
+                </em>{" "}
+                different people with different needs.
+              </p>
+            </div>
+          </div>
+
+          {/* Persona cards */}
+          <div className="grid sm:grid-cols-3 gap-px bg-[#ece9f7] rounded-[8px] overflow-hidden">
+            <PersonaCard
+              icon={
+                <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.6">
+                  <path d="M3 9l1-5h16l1 5" />
+                  <path d="M3 9a2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0" />
+                  <path d="M5 9v10h14V9" />
+                  <path d="M10 19v-5h4v5" />
+                </svg>
+              }
+              iconColor="#b699fb"
+              role="SERVICE PROVIDER"
+              quote="I need to stay on top of my schedule and manage my business."
+              photo={personaProvider}
+            />
+            <PersonaCard
+              icon={
+                <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.6">
+                  <circle cx="9" cy="8" r="3" />
+                  <circle cx="17" cy="9" r="2.5" />
+                  <path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6" />
+                  <path d="M14 15c2.5.3 4 2 4 5" />
+                </svg>
+              }
+              iconColor="#0f766e"
+              role="STAFF"
+              quote="I just want to find a service and book it without unnecessary steps."
+              photo={personaStaff}
+            />
+            <PersonaCard
+              icon={
+                <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.6">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" />
+                </svg>
+              }
+              iconColor="#b91c5c"
+              role="CLIENT"
+              quote="I need to know which appointments are mine and what's next"
+              photo={personaClient}
+            />
+          </div>
+        </section>
+
         <PlaceholderSection
           id="insights"
           label="Insights"
@@ -201,6 +335,31 @@ function PriorityNote({ color, label, children }) {
     >
       <p className="font-medium mb-2 tracking-wide">{label}</p>
       <p>{children}</p>
+    </div>
+  );
+}
+
+function PersonaCard({ icon, iconColor, role, quote, photo }) {
+  return (
+    <div className="bg-[#f4f1fc] p-6 flex flex-col">
+      <span
+        className="w-14 h-14 rounded-full flex items-center justify-center mb-4"
+        style={{ backgroundColor: `${iconColor}26`, color: iconColor }}
+      >
+        {icon}
+      </span>
+      <p
+        className="text-[13px] font-medium tracking-wide mb-3"
+        style={{ color: "#a48ff0" }}
+      >
+        {role}
+      </p>
+      <p className="text-[16px] leading-[22px] text-black mb-6">"{quote}"</p>
+      <img
+        src={photo}
+        alt={`${role.toLowerCase()} persona`}
+        className="mt-auto w-[130px] h-auto grayscale self-start"
+      />
     </div>
   );
 }
