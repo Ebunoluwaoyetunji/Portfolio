@@ -5,6 +5,11 @@ import briefMockups from "../assets/images/brief-mockups.png";
 import personaProvider from "../assets/images/persona-provider.png";
 import personaStaff from "../assets/images/persona-staff.png";
 import personaClient from "../assets/images/persona-client.png";
+import flowAvailability from "../assets/images/flow-availability.png";
+import flowScheduling from "../assets/images/flow-scheduling.png";
+import flowClients from "../assets/images/flow-clients.png";
+import flowManageStaff from "../assets/images/flow-manage-staff.png";
+import flowFigjam from "../assets/images/flow-figjam.png";
 
 const PROCESS_SECTIONS = [
   { id: "brief", label: "Brief" },
@@ -297,84 +302,40 @@ function ProcessSection() {
           </div>
         </section>
 
-        <PlaceholderSection
+        <section
           id="insights"
-          label="Insights"
-          refCallback={(el) => (sectionRefs.current.insights = el)}
-        />
-        <PlaceholderSection
-          id="strategy"
-          label="Strategy"
-          refCallback={(el) => (sectionRefs.current.strategy = el)}
-        />
-        <PlaceholderSection
-          id="design-process"
-          label="Design process"
-          refCallback={(el) => (sectionRefs.current["design-process"] = el)}
-        />
-        <PlaceholderSection
-          id="validation"
-          label="Validation"
-          refCallback={(el) => (sectionRefs.current.validation = el)}
-        />
-        <PlaceholderSection
-          id="impact"
-          label="Impact"
-          refCallback={(el) => (sectionRefs.current.impact = el)}
-        />
-      </div>
-    </div>
-  );
-}
+          ref={(el) => (sectionRefs.current.insights = el)}
+          className="process-section mb-32"
+        >
+          <div className="grid md:grid-cols-[1.2fr_1fr] gap-12 items-start mb-14">
+            <div>
+              <p className="font-serif italic text-[28px] md:text-[32px] leading-tight text-black mb-6">
+                Understanding how scheduling products work.
+              </p>
+              <p className="text-[17px] leading-[26px] text-accent-2 max-w-[480px]">
+                I studied Acuity's user flow to understand how scheduling,
+                availability, services and booking fit together, then used
+                those findings to shape the initial flow for Dressr.
+              </p>
+            </div>
 
-function PriorityNote({ color, label, children }) {
-  return (
-    <div
-      className="rounded-[6px] p-5 w-[220px] text-[14px] leading-[20px] text-primary shadow-md font-hand"
-      style={{ backgroundColor: color }}
-    >
-      <p className="font-medium mb-2 tracking-wide">{label}</p>
-      <p>{children}</p>
-    </div>
-  );
-}
-
-function PersonaCard({ icon, iconColor, role, quote, photo }) {
-  return (
-    <div className="bg-[#f4f1fc] p-6 flex flex-col">
-      <span
-        className="w-14 h-14 rounded-full flex items-center justify-center mb-4"
-        style={{ backgroundColor: `${iconColor}26`, color: iconColor }}
-      >
-        {icon}
-      </span>
-      <p
-        className="text-[13px] font-medium tracking-wide mb-3"
-        style={{ color: "#a48ff0" }}
-      >
-        {role}
-      </p>
-      <p className="text-[16px] leading-[22px] text-black mb-6">"{quote}"</p>
-      <img
-        src={photo}
-        alt={`${role.toLowerCase()} persona`}
-        className="mt-auto w-[130px] h-auto grayscale self-start"
-      />
-    </div>
-  );
-}
-
-function PlaceholderSection({ id, label, refCallback }) {
-  return (
-    <section
-      id={id}
-      ref={refCallback}
-      className="process-section mb-32 min-h-[300px]"
-    >
-      <p className="font-serif text-[28px] text-black/30">{label}</p>
-      <p className="text-[16px] text-black/30 mt-4">
-        Content coming soon — send this section over and I'll build it in.
-      </p>
-    </section>
-  );
-}
+            <div className="bg-[#dbeafe] rounded-[12px] p-6 max-w-[380px]">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-6 h-6 rounded-full bg-white/60 flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-accent-2" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="8" r="4" />
+                    <path d="M4 20c0-4 4-6 8-6s8 2 8 6" />
+                  </svg>
+                </span>
+                <p className="text-[13px] text-black/60">
+                  Ebunoluwa · Product exploration
+                </p>
+              </div>
+              <p className="text-[16px] font-medium text-black mb-3">
+                What I took from it
+              </p>
+              <ul className="list-disc pl-5 space-y-1.5 text-[15px] text-black/85">
+                <li>Scheduling comes first</li>
+                <li>Clients have their own flow</li>
+                <li>Availability affects booking</li>
+                <li>Each user has
