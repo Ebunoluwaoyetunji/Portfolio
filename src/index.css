@@ -92,3 +92,7 @@ body {
   height: auto;
   display: block;
 }
+/* Process section: sticky scrollspy sidebar */
+.process-section {
+  scroll-margin-top: 140px;
+}
